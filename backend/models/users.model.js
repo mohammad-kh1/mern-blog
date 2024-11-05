@@ -5,7 +5,6 @@ const UsersSchema = new Schema({
 
 	ID:{
 		tpye:mongoose.Schema.Types.ObjectId,
-	    default: () => new mongoose.Types.ObjectId(),
 	},
 
 	firstName : {
@@ -32,7 +31,7 @@ const UsersSchema = new Schema({
 	username:{
 		type:String,
 		required:String,
-
+		unique:true,
 	}
 
 
@@ -40,4 +39,4 @@ const UsersSchema = new Schema({
 
 const User = mongoose.model("Users" , UsersSchema);
 
-module.export = User;
+export default User;
