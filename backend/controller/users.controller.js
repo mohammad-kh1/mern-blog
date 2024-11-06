@@ -72,6 +72,14 @@ export const login = async (req , res) => {
 		return res.status(500).json({message:"server error"});
 	}
 
+}
 
+export const logoutUser = (req , res) => {
+	try{
+		res.cookie("token" , {expires:new Date(0) , maxAge:0}).json({message:"Logged out"});
 
+	}catch(error){
+		console.log(error);
+		return res.status(500).json({message:"server errror"});
+	}
 }
